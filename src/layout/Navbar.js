@@ -1,41 +1,53 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import { BsFillCartFill } from "react-icons/bs";
+import { IoIosListBox } from "react-icons/io";
+import { BiSearchAlt } from "react-icons/bi";
 
 const Navbar = () => {
     return (
-        <header className="p-4 bg-gray-100 text-gray-800">
-            <div className="container flex justify-between h-12 mx-auto">
-                <Link to={'/'} className="flex items-center p-2 text-2xl font-semibold" >
-                   Tech-Talk
+        <nav className='h-14 bg-indigo-200 rounded-full m-2 max-w-7xl mx-auto px-5'>
+            <ul className='h-full  mx-auto flex justify-between items-center gap-3 font-semibold text-indigo-900'>
+                <h1>Moon Tech</h1>
+
+                <li className='flex bg-white mx-auto h-8 w-full max-w-lg  rounded-full pr-3'>
+                    <input
+                        className='h-8 rounded-full w-full text-sm border-0 focus:ring-0 outline-none'
+                        type='text'
+                        name='search'
+                        id='search'
+                    />
+                    <button>
+                        <BiSearchAlt />
+                    </button>
+                </li>
+                <li>
+                    <Link to='/'>Home</Link>
+                </li>
+                <li>
+                    <Link to='/top-rated'>Top Rated</Link>
+                </li>
+                <li>
+                    <Link to='/about'>About</Link>
+                </li>
+                <li>
+                    <Link to='/wishlist'>Wishlist</Link>
+                </li>
+                <li>
+                    <Link to='/dashboard'>Dashboard</Link>
+                </li>
+                <Link to='/'>
+                    <li title='Wishlist' className='bg-indigo-500 p-2 rounded-full'>
+                        <IoIosListBox className='text-white' />
+                    </li>
                 </Link>
-                <ul className="items-stretch hidden space-x-3 lg:flex">
-                    <li className="flex">
-                        <Link  to="/home" className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-cyan-600 border-cyan-600">Home</Link>
+                <Link to='/cart'>
+                    <li title='cart' className='bg-indigo-500 p-2 rounded-full'>
+                        <BsFillCartFill className='text-white ' />
                     </li>
-                    <li className="flex">
-                        <Link  to="/about" className="flex items-center px-4 -mb-1 border-b-2 border-transparent">About</Link>
-                    </li>
-                    <li className="flex">
-                        <Link  to="/top-rated" className="flex items-center px-4 -mb-1 border-b-2 border-transparent">Top Rated</Link>
-                    </li>
-                    <li className="flex">
-                        <Link  to="/cart" className="flex items-center px-4 -mb-1 border-b-2 border-transparent">Cart</Link>
-                    </li>
-                    <li className="flex">
-                        <Link  to="/wishlist" className="flex items-center px-4 -mb-1 border-b-2 border-transparent">Wishlist</Link>
-                    </li>
-                </ul>
-                <div className="items-center flex-shrink-0 hidden lg:flex">
-                    <button className="self-center px-8 py-3 rounded">Sign in</button>
-                    <button className="self-center px-8 py-3 font-semibold rounded bg-cyan-600 text-gray-50">Sign up</button>
-                </div>
-                <button className="p-4 lg:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 text-gray-800">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-        </header>
+                </Link>
+            </ul>
+        </nav>
     );
 };
 

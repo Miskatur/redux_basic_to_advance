@@ -1,6 +1,7 @@
-import { ADD_TO_CART, ADD_TO_WISHLIST, REMOVE_FROM_CART, REMOVE_FROM_WISHLIST } from "../actionTypes/actionTypes";
+import { ADD_PRODUCT, ADD_TO_CART, ADD_TO_WISHLIST, LOAD_DATA, REMOVE_FROM_CART, REMOVE_FROM_WISHLIST, REMOVE_PRODUCT } from "../actionTypes/actionTypes";
 
 const initialState = {
+    products: [],
     cart: [],
     wishlist: []
 };
@@ -9,6 +10,22 @@ const ProductReducer = (state = initialState, action) => {
     const selectedProduct = state.cart.find(product => product.id === action.payload.id)
 
     switch (action.type) {
+        case LOAD_DATA:
+            return {
+                ...state,
+                products: action.payload
+            }
+        case ADD_PRODUCT:
+            return {
+                ...state,
+                products: [...state.products, action.payload]
+            }
+
+        case REMOVE_PRODUCT:
+            return {
+                ...state,
+                products: state.products.filter((product) => product?._id !== action.payload)
+            }
 
         case ADD_TO_CART:
             if (selectedProduct) {

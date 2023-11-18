@@ -2,7 +2,7 @@
 // import ProductCard from '../components/ProductCard';
 // import { useProducts } from '../context/ProductProvider';
 
-// const TopRated = () => {
+const TopRated = () => {
 //     const { state } = useProducts()
 //     const { products, loading, error } = state;
 //     let content;
@@ -39,11 +39,11 @@
 //     }
 
 
-//     return (
-//         <div className='mt-10 '>
-//             {content}
-//         </div>
-//     );
-// };
+    return (
+        <div className='mt-10 '>
+           {/* {content} */}
+        </div>
+    );
+};
 
-// export default TopRated;
+export default TopRated;

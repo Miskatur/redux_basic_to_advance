@@ -7,7 +7,7 @@ import store from './redux/store';
 function App() {
 
   return (
-    <div className='p-20'>
+    <div className='px-20'>
       <Provider store={store}>
         <RouterProvider router={routes} />
       </Provider>

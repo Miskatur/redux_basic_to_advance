@@ -3,8 +3,8 @@ import ProductCard from '../components/ProductCard';
 import { useSelector } from 'react-redux';
 
 const Cart = () => {
-    const cart = useSelector((state) => state.cart)
-
+    const cart = useSelector((state) => state.product.cart)
+    console.log(cart);
     // let content;
 
     // if (loading) {
@@ -43,12 +43,14 @@ const Cart = () => {
         <div className='mt-10 grid grid-cols-3 gap-5 '>
             {/* {content} */}
             {
-                cart?.sort((a, b) => a?.id - b?.id).map((product, index) =>
-                    <ProductCard
-                        product={product}
-                        key={index}
-                    />
-                )
+                cart
+                    ?.sort((a, b) => a?.cartPosition - b?.cartPosition)
+                    ?.map((product, index) =>
+                        <ProductCard
+                            product={product}
+                            key={index}
+                        />
+                    )
             }
         </div>
     );

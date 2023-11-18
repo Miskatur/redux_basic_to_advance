@@ -5,6 +5,9 @@ import TopRated from "../pages/TopRated";
 import Cart from "../pages/Cart";
 import About from "../pages/About";
 import Wishlist from "../pages/Wishlist";
+import Dashboard from "../layout/Dashboard/Dashboard";
+import ProductList from "../pages/Dashboard/ProductList";
+import AddProduct from "../pages/Dashboard/AddProduct";
 
 export const routes = createBrowserRouter([
     {
@@ -24,7 +27,7 @@ export const routes = createBrowserRouter([
                 element: <About />
             },
             {
-                path: 'top-rated',
+                path: 'topRated',
                 element: <TopRated />
             },
             {
@@ -37,5 +40,18 @@ export const routes = createBrowserRouter([
             },
 
         ]
-    }
+    }, {
+        path: "/dashboard",
+        element: <Dashboard />,
+        children: [
+            {
+                path: "/dashboard",
+                element: <ProductList />,
+            },
+            {
+                path: "add-product",
+                element: <AddProduct />,
+            },
+        ],
+    },
 ])

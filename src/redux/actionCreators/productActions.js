@@ -1,4 +1,26 @@
-import { ADD_TO_CART, ADD_TO_WISHLIST, REMOVE_FROM_CART, REMOVE_FROM_WISHLIST } from "../actionTypes/actionTypes"
+import { ADD_PRODUCT, ADD_TO_CART, ADD_TO_WISHLIST, LOAD_DATA, REMOVE_FROM_CART, REMOVE_FROM_WISHLIST, REMOVE_PRODUCT } from "../actionTypes/actionTypes"
+
+export const loadData = (data) => {
+    return {
+        type: LOAD_DATA,
+        payload: data
+    }
+}
+
+export const addProduct = (id) => {
+    return {
+        type: ADD_PRODUCT,
+        payload: id
+    }
+}
+export const removeProduct = (id) => {
+    return {
+        type: REMOVE_PRODUCT,
+        payload: id
+    }
+}
+
+
 
 export const addToCart = (product) => {
     return {
